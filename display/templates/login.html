@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MFID</title>
+    <link rel="stylesheet" href="{% static "css/styles.css" %}">
+    <link rel="stylesheet" href="{% static "css/login.css" %}">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+
+<body>
+    <nav id="nav">
+        <a href="{% url "login" %}" style="background: white;">Login</a>
+        <a href="{% url "signup" %}">Signup</a>
+    </nav>
+
+    <form class="login" method="post" action="{% url "check_login" %}">
+        {% csrf_token %}
+        <h1>Login</h1>
+        <div class="login-img">
+            <img src="{% static "images/mfid_logo.jpg" %}" alt="">
+        </div>
+
+        <label for="">Username or Email</label>
+        <input type="text" name="username">
+        <label for="">Password</label>
+        <input type="text" name="password">
+        <button>Submit</button>
+    </form>
+
+    <script></script>
+</body>
+
+</html>

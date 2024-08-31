@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block styles %}<link rel="stylesheet" href="{% static "css/apps.css" %}">{% endblock styles %}
+
+{% block content %}
+    <section class="settings">
+        <h3>Here are some of the apps that we provide</h3>
+        <ul class="settings-list">
+            <li>
+                <button onclick="window.location.href= `{% url "chatbot" %}`">Chat Bot</button>
+            </li>
+            <li>
+                <button>Medical Info Export</button>
+            </li>
+            <li>
+                <button>Facial Recognition</button>
+            </li>
+            <li>
+                <button onclick="window.location.href = `https://www.google.co.za/maps/search/hospital/@-26.1176446,27.9947262,12z/data=!3m1!4b1?hl=en&entry=ttu`">Locational Services</button>
+            </li>
+            <li>
+                <button onclick="window.location.href = `{% url "logout" %}`">Logout</button>
+            </li>
+            <li>
+                <button>Insurance</button>
+            </li>
+        </ul>
+    </section><br><br><br><br><br><br>
+{% endblock content %}
+
+{% block js %}
+<script src=""></script>
+{% endblock js %}  

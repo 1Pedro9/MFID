@@ -1,0 +1,106 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block styles %}<link rel="stylesheet" href="{% static "css/problems.css" %}">{% endblock styles %}
+
+{% block content %}
+
+    <section class="problems">
+        <h3>What problems are you having today?</h3>
+        <ul class="problems-list">
+            <li>
+                <div>Car Problems</div>
+                <div class="problem-container">
+                    <button id="carproblem1"><span>Problem #1</span></button>
+                    <button id="carproblem2"><span>Problem #2</span></button>
+                    <button id="carproblem3"><span>Problem #3</span></button>
+                    <button id="carproblem4"><span>Problem #4</span></button>
+                    <button id="carproblem5"><span>Problem #5</span></button>
+                    <button id="carproblem6"><span>Problem #6</span></button>
+                </div>
+            </li>
+            <li>
+                <div>Insurance Problems</div>
+                <div class="problem-container">
+                    <button id="insuranceproblem1"><span>Problem #1</span></button>
+                    <button id="insuranceproblem2"><span>Problem #2</span></button>
+                    <button id="insuranceproblem3"><span>Problem #3</span></button>
+                    <button id="insuranceproblem4"><span>Problem #4</span></button>
+                    <button id="insuranceproblem5"><span>Problem #5</span></button>
+                    <button id="insuranceproblem6"><span>Problem #6</span></button>
+                </div>
+            </li>
+            <li>
+                <div>Medical Problems</div>
+                <div class="problem-container">
+                    <button id="medicalproblem1"><span>Problem #1</span></button>
+                    <button id="medicalproblem2"><span>Problem #2</span></button>
+                    <button id="medicalproblem3"><span>Problem #3</span></button>
+                    <button id="medicalproblem4"><span>Problem #4</span></button>
+                    <button id="medicalproblem5"><span>Problem #5</span></button>
+                    <button id="medicalproblem6"><span>Problem #6</span></button>
+                </div>
+            </li>
+        </ul>
+    </section><br><br><br><br><br><br>
+    <script>
+
+// Array of YouTube video links
+const carvideoLinks = [
+'https://www.youtube.com/watch?v=3aQRO29ZzbE',
+'https://www.youtube.com/watch?v=O1hF25Cowv8',
+'https://www.youtube.com/watch?v=BAPmtOwCHdY',
+'https://www.youtube.com/watch?v=3aQRO29ZzbE',
+'https://www.youtube.com/watch?v=O1hF25Cowv8',
+'https://www.youtube.com/watch?v=BAPmtOwCHdY',
+    
+];
+const insurancevideoLinks = [
+    'https://www.youtube.com/watch?v=qjXgpJpSlCc',
+    'https://www.youtube.com/watch?v=qjXgpJpSlCc',
+    'https://www.youtube.com/watch?v=qjXgpJpSlCc',
+    'https://www.youtube.com/watch?v=qjXgpJpSlCc',
+    'https://www.youtube.com/watch?v=qjXgpJpSlCc',
+    'https://www.youtube.com/watch?v=qjXgpJpSlCc'
+];
+const medicalvideoLinks = [
+    'https://www.youtube.com/watch?v=qjXgpJpSlCc',
+    'https://www.youtube.com/watch?v=qjXgpJpSlCc',
+    'https://www.youtube.com/watch?v=qjXgpJpSlCc',
+    'https://www.youtube.com/watch?v=qjXgpJpSlCc',
+    'https://www.youtube.com/watch?v=qjXgpJpSlCc',
+    'https://www.youtube.com/watch?v=qjXgpJpSlCc'
+];
+
+
+// Function to set thumbnail and link for each button
+function setButtonThumbnail(buttonId, videoLink) {
+    const button = document.getElementById(buttonId);
+    const videoId = videoLink.split('v=')[1];
+    const thumbnailUrl = `https://img.youtube.com/vi/${videoId}/0.jpg`;
+    
+    button.style.backgroundImage = `url(${thumbnailUrl})`;
+    button.style.backgroundSize = 'cover';
+    button.style.backgroundPosition = 'center';
+    button.style.width = '300px';  // Adjust as needed
+    button.style.height = '170px'; // Adjust as needed
+
+    button.addEventListener('click', function() {
+        window.location.href = videoLink;
+    });
+}
+
+// Set thumbnails and links for each button
+
+// Car
+for(var i = 0; i < 6; i++){
+    setButtonThumbnail('carproblem' + (i+1), carvideoLinks[i]);
+    setButtonThumbnail('insuranceproblem' + (i+1), carvideoLinks[i]);
+    setButtonThumbnail('medicalproblem' + (i+1), carvideoLinks[i]);
+}
+
+    </script>
+{% endblock content %}
+
+{% block js %}
+{% endblock js %}  

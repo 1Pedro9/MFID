@@ -1,0 +1,138 @@
+#nav {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    margin-top: 20px;
+}
+
+#nav a {
+    border: 1px solid black;
+    padding: 5px;
+    width: 100px;
+    text-align: center;
+    border-radius: 10px 0;
+    background: #ddd;
+}
+
+.login {
+    width: 90%;
+    margin-left: 5%;
+    background: white;
+    margin-top: 20px;
+    padding: 20px 5px;
+}
+
+.login h1 {
+    text-align: center;
+    width: 75%;
+    margin-left: 12.5%;
+    border-bottom: 1px solid black;
+    padding-bottom: 5px;
+}
+
+.login-img {
+    margin-top: 20px;
+    width: 90%;
+    margin-left: 5%;
+    margin-bottom: 10px;
+}
+
+.login-img img {
+    width: 100%;
+}
+
+.login label {
+    margin-left: 5%;
+}
+
+.login input {
+    width: 90%;
+    margin-left: 5%;
+    margin-bottom: 10px;
+    border: 1px solid black;
+    font-size: 1.2rem;
+    padding: 5px;
+    outline: none;
+    background: #b7cdeb;
+}
+
+.login button {
+    width: 90%;
+    margin-left: 5%;
+    font-size: 1.3rem;
+    background: rgb(5, 195, 195);
+    padding: 10px;
+    color: white;
+    letter-spacing: 2px;
+
+}
+
+.signup-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    margin-left: 5%;
+}
+
+.signup-container button {
+    width: 49%;
+    margin: 0;
+    font-size: 1.1rem;
+    padding: 5px 10px;
+    margin-top: 20px;
+}
+
+.login>section {
+    display: none;
+}
+
+.login>.chosen {
+    display: block;
+}
+
+.conditions-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: top;
+}
+
+.conditions-container input {
+    height: 40px;
+    width: 70%;
+    margin-left: 2.5%;
+}
+
+.conditions-container button {
+    width: 20%;
+    padding: 0;
+    margin: 0;
+    height: 40px;
+    margin-right: 2.5%;
+}
+
+.conditions>ul>li,
+.allergies>ul>li,
+.medicine>ul>li,
+.dependents>ul>li {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    width: 90%;
+    margin-left: 5%;
+    border-bottom: 1px solid black;
+    margin-bottom: 10px;
+    padding-bottom: 3px;
+}
+
+.conditions span,
+.allergies span,
+.medicine span,
+.dependents span {
+    width: 30px;
+    border-radius: 50%;
+    border: 1px solid black;
+    padding: 5px;
+    text-align: center;
+}

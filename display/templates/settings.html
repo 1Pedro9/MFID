@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block styles %}<link rel="stylesheet" href="{% static "css/settings.css" %}">{% endblock styles %}
+
+{% block content %}
+    <section class="route">
+        <button onclick="route(this, `personal`)" class="route-not-chosen route-chosen">Personal</button>
+        <button onclick="route(this, `conditions`)" class="route-not-chosen">Medical Conditions</button>
+        <button onclick="route(this, `allergies`)" class="route-not-chosen">Allergies</button>
+        <button onclick="route(this, `personal`)" class="route-not-chosen">Insurance</button>
+        <button onclick="route(this, `personal`)" class="route-not-chosen">Dependents</button>
+    </section>
+    <section class="settings">
+        <section class="personal chosen">
+            <label for="">First name</label>
+            <input type="text" value="Pedro">
+            <label for="">Last name</label>
+            <input type="text" value="Basson">
+            <label for="">Email</label>
+            <input type="text" value="basson.pedro@gmail.com">
+            <label for="">Phone nr</label>
+            <input type="text" value="+27 71 (819) 2428">
+        </section>
+        <section class="conditions">
+            <div class="conditions-container">
+                <input type="text" placeholder="Medical Conditions">
+                <button>Add</button>
+            </div>
+            <ul class="conditions-list">
+                <li><span class="material-symbols-outlined">remove</span>
+                    <div>Heart Transplant</div>
+                </li>
+                <li><span class="material-symbols-outlined">remove</span>
+                    <div>Diabetes</div>
+                </li>
+            </ul>
+        </section>
+        <section class="allergies">
+            <div class="conditions-container">
+                <input type="text" placeholder="Allergies">
+                <button>Add</button>
+            </div>
+            <ul class="conditions-list">
+                <li><span class="material-symbols-outlined">remove</span>
+                    <div>Iodine</div>
+                </li>
+                <li><span class="material-symbols-outlined">remove</span>
+                    <div>Pennesalyne</div>
+                </li>
+            </ul>
+        </section>
+    </section><br><br><br><br><br><br>
+{% endblock content %}
+
+{% block js %}
+<script src="{% static "js/settings.js" %}"></script>
+{% endblock js %}  

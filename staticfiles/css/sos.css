@@ -1,0 +1,55 @@
+/* --- SOS --- */
+.sos {
+    width: 85%;
+    margin-left: 7.5%;
+    margin-top: 20px;
+}
+
+.sos h3 {
+    text-transform: initial;
+    font-size: 1.3rem;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 20px;
+    color: white;
+    background: linear-gradient(135deg, rgb(137, 53, 53), #ff0ecf, #d03232);
+}
+
+.sos-list {
+    margin-top: 20px;
+}
+
+.sos-list h3 {
+    text-transform: initial;
+    font-size: 1.3rem;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.sos-list li {
+    margin-top: 20px;
+}
+
+
+.sos-container {
+    display: block;
+    width: 100%;
+    border: 1px solid black;
+    border-top: none;
+    background: white;
+    padding: 10px;
+    font-size: 1.25rem;
+    display: none;
+}
+
+.sos-list button {
+    width: 100%;
+    border-radius: 4px;
+    padding: 10px;
+    font-size: 1.5rem;
+    background: white;
+    color: white;
+    font-weight: bolder;
+    font-style: oblique;
+}

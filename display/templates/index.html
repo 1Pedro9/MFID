@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block styles %}<link rel="stylesheet" href="{% static "css/index.css" %}">{% endblock styles %}
+
+{% block content %}
+    <section class="header">
+        <button style="background: #fff; padding-top: 5px; border-radius: 20px 0; border: 1px solid black"><a
+                href="{% url "index" %}">Personal</a></button>
+        <button><a href="{% url "dependents" %}">Dependants</a></button>
+    </section>
+
+    <section class="problems">
+        <h3 style='background: linear-gradient(135deg, white, #ff0ecf, #d03232);'>SOS - Get help from professionals</h3>
+        <h3 style='background: linear-gradient(135deg, white, #0ec7ff, #3244d0);'>See the services that we offer</h3>
+        <h3 style='background: linear-gradient(135deg, white, #0eff6e, #218b26);'>Change you profile information</h3>
+        <h3 style='background: linear-gradient(135deg, white, #ffd70e, #e19d36);'>See your dependents</h3>
+
+    </section><br><br><br><br><br><br>
+    <script>
+
+// Array of YouTube video links
+const carvideoLinks = [
+'https://www.youtube.com/watch?v=3aQRO29ZzbE',
+'https://www.youtube.com/watch?v=O1hF25Cowv8',
+'https://www.youtube.com/watch?v=BAPmtOwCHdY',
+'https://www.youtube.com/watch?v=3aQRO29ZzbE',
+'https://www.youtube.com/watch?v=O1hF25Cowv8',
+'https://www.youtube.com/watch?v=BAPmtOwCHdY',
+    
+];
+const insurancevideoLinks = [
+    'https://www.youtube.com/watch?v=qjXgpJpSlCc',
+    'https://www.youtube.com/watch?v=qjXgpJpSlCc',
+    'https://www.youtube.com/watch?v=qjXgpJpSlCc',
+    'https://www.youtube.com/watch?v=qjXgpJpSlCc',
+    'https://www.youtube.com/watch?v=qjXgpJpSlCc',
+    'https://www.youtube.com/watch?v=qjXgpJpSlCc'
+];
+const medicalvideoLinks = [
+    'https://www.youtube.com/watch?v=qjXgpJpSlCc',
+    'https://www.youtube.com/watch?v=qjXgpJpSlCc',
+    'https://www.youtube.com/watch?v=qjXgpJpSlCc',
+    'https://www.youtube.com/watch?v=qjXgpJpSlCc',
+    'https://www.youtube.com/watch?v=qjXgpJpSlCc',
+    'https://www.youtube.com/watch?v=qjXgpJpSlCc'
+];
+
+
+// Function to set thumbnail and link for each button
+function setButtonThumbnail(buttonId, videoLink) {
+    const button = document.getElementById(buttonId);
+    const videoId = videoLink.split('v=')[1];
+    const thumbnailUrl = `https://img.youtube.com/vi/${videoId}/0.jpg`;
+    
+    button.style.backgroundImage = `url(${thumbnailUrl})`;
+    button.style.backgroundSize = 'cover';
+    button.style.backgroundPosition = 'center';
+    button.style.width = '300px';  // Adjust as needed
+    button.style.height = '170px'; // Adjust as needed
+
+    button.addEventListener('click', function() {
+        window.location.href = videoLink;
+    });
+}
+
+// Set thumbnails and links for each button
+
+// Car
+for(var i = 0; i < 6; i++){
+    setButtonThumbnail('carproblem' + (i+1), carvideoLinks[i]);
+    setButtonThumbnail('insuranceproblem' + (i+1), carvideoLinks[i]);
+    setButtonThumbnail('medicalproblem' + (i+1), carvideoLinks[i]);
+}
+
+    </script>
+{% endblock content %}
+
+{% block js %}
+{% endblock js %}  

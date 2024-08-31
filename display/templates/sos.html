@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block styles %}<link rel="stylesheet" href="{% static "css/sos.css" %}">{% endblock styles %}
+
+{% block content %}
+    <br><br><br><br>
+        <section class="sos">
+            <h3>Here are all the emergency services that we provide</h3>
+            <ul class="sos-list">
+                <li>
+                    <button onclick="request(911)" style="background: linear-gradient(150deg, white, red, rgb(185, 3, 185));">Ambulance</button>
+                </li>
+                <li>
+                    <button onclick="request(981)" style="background: linear-gradient(150deg, white, rgb(11, 130, 143), rgb(5, 146, 45));">Sea
+                        Rescue</button>
+                </li>
+                <li>
+                    <button onclick="request(112)" style="background: linear-gradient(150deg, white, rgb(255, 162, 0), rgb(255, 0, 0));">Fire
+                        rescue</button>
+                </li>
+                <li>
+                    <button onclick="request(10111)" style="background: linear-gradient(150deg, white, rgb(0, 123, 255), rgb(232, 76, 141));">Police
+                        assistance</button>
+                </li>
+            </ul>
+        </section><br><br><br><br><br><br>
+        <script>
+
+function request(e){
+    $.ajax({
+        url: "{% url 'sos_request' %}",
+        type: "POST",
+        data: {
+            'value': value,
+            'csrfmiddlewaretoken': '{{ csrf_token }}'
+        },
+        success: function(response) {
+            if(response.response == "Success"){
+                alert("We are sending help right away")
+            }
+            else {
+                alert(response.response)
+            }
+        }
+    });
+}
+
+        </script>
+{% endblock content %}
+
+{% block js %}
+<script src=""></script>
+{% endblock js %}  

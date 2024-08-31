@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block styles %}<link rel="stylesheet" href="{% static "css/search.css" %}">{% endblock styles %}
+
+{% block content %}
+    <br>
+    <section class="search">
+        <div class="search-container">
+            <input type="search" placeholder="Search..." class="search-input">
+            <ul class="auto-box">
+                <li>
+                    <div>How to change my tyre</div><span class="material-symbols-outlined">close</span>
+                </li>
+                <li>
+                    <div>How to give someone CPR</div><span class="material-symbols-outlined">close</span>
+                </li>
+                <li>
+                    <div>Does a kidney stone hurt</div><span class="material-symbols-outlined">close</span>
+                </li>
+                <li>
+                    <div>What is the best insurance</div><span class="material-symbols-outlined">close</span>
+                </li>
+                <li>
+                    <div>What insurance should I get</div><span class="material-symbols-outlined">close</span>
+                </li>
+            </ul>
+        </div>
+        <ul class="genres">
+            <li><button>Medicine</button></li>
+            <li><button>Ambulance</button></li>
+            <li><button>Police</button></li>
+            <li><button>Fire</button></li>
+            <li><button>Sea</button></li>
+            <li><button>Car</button></li>
+        </ul>
+    </section><br><br><br><br><br><br>
+{% endblock content %}
+
+{% block js %}
+<script src="{% static "js/dependent.js" %}"></script>
+{% endblock js %}  

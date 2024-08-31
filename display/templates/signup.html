@@ -1,0 +1,229 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MFID</title>
+    <link rel="stylesheet" href="{% static "css/styles.css" %}">
+    <link rel="stylesheet" href="{% static "css/login.css" %}">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    </head>
+
+<body>
+    
+    <nav id="nav">
+        <a href="{% url "login" %}">Login</a>
+        <a href="{% url "signup" %}" style="background: white;">Signup</a>
+    </nav>
+
+    <section class="login">
+        <section class="personal chosen">
+            <h1>Personal Information</h1>
+            <br>
+            {% csrf_token %}
+    
+            <label for="username">Username</label>
+            <input type="text" id="username" class="username" name="username" value="{{ member.username|default_if_none:'' }}">
+            
+            <label for="password">Password</label>
+            <input type="text" id="password" class="password" name="password" value="{{ member.password|default_if_none:'' }}">
+            
+            <label for="email">Email</label>
+            <input type="email" id="email" class="email" name="email" value="{{ member.email|default_if_none:'' }}">
+            
+            <label for="phone">Phone nr</label>
+            <input type="text" id="phone" class="phone" name="phone" value="{{ member.phone|default_if_none:'' }}">
+            
+            <label for="title">Title</label>
+            <input type="text" id="title" class="title" name="title" value="{{ member.title|default_if_none:'' }}">
+            
+            <label for="fname">Full name</label>
+            <input type="text" id="fname" class="fname" name="fname" value="{{ member.fname|default_if_none:'' }}">
+            
+            <label for="lname">Last name</label>
+            <input type="text" id="lname" class="lname" name="lname" value="{{ member.lname|default_if_none:'' }}">
+            
+            <label for="id">ID number</label>
+            <input type="text" id="id" class="id" name="id" value="{{ member.id|default_if_none:'' }}">
+            
+            <label for="initials">Initials</label>
+            <input type="text" id="initials" class="initials" name="initials" value="{{ member.initials|default_if_none:'' }}">
+            
+            <label for="occupation">Occupation</label>
+            <input type="text" id="occupation" class="occupation" name="occupation" value="{{ member.occupation|default_if_none:'' }}">
+            
+            <label for="employer">Current Employer</label>
+            <input type="text" id="employer" class="employer" name="employer" value="{{ member.employer|default_if_none:'' }}">
+            
+        </section>
+        <section class="conditions">
+            <div class="conditions-container">
+                <input type="text" placeholder="Add Condition">
+                <button onclick="add('conditions')">Add</button>
+            </div>
+            <ul class="conditions-list">
+                {% for i in conditions %}
+                    <li>
+                        <div>{{i}}</div><span>--</span>
+                    </li>
+                {% endfor %}
+            </ul>
+        </section>
+        <section class="allergies">
+            <div class="conditions-container">
+                <input type="text" placeholder="Add Allergies">
+                <button onclick="add('allergies')">Add</button>
+            </div>
+            <ul class="conditions-list">
+                {% for i in allergies %}
+                    <li>
+                        <div>{{i}}</div><span>--</span>
+                    </li>
+                {% endfor %}
+            </ul>
+        </section>
+        <section class="medicine">
+            <div class="conditions-container">
+                <input type="text" placeholder="Add Medicine">
+                <button onclick="add('medicine')">Add</button>
+            </div>
+            <ul class="conditions-list">
+                {% for i in medications %}
+                    <li>
+                        <div>{{i}}</div><span>--</span>
+                    </li>
+                {% endfor %}
+            </ul>
+        </section>
+        <section class="mainmember">
+            <h1>Medical Aid: Main member</h1>
+            <br>
+            <label for="">Last name</label>
+            <input type="text">
+            <label for="">Initials</label>
+            <input type="text">
+            <label for="">Aid Name</label>
+            <input type="text">
+            <label for="">Option</label>
+            <input type="text">
+            <label for="">Date of birth</label>
+            <input type="date">
+            <label for="">Dependent code</label>
+            <input type="text">
+        </section>
+        <section class="dependents">
+            <div class="dependents-container">
+                <input type="text" placeholder="Name">
+                <input type="text" placeholder="Date of birth">
+                <input type="text" placeholder="Dependent code">
+                <button>Add</button>
+            </div><br><br>
+            <ul class="conditions-list">
+                <li>
+                    <div>Paul Basson - 00</div><span>--</span>
+                </li>
+                <li>
+                    <div>Rene Basson - 01</div><span>--</span>
+                </li>
+            </ul>
+        </section>
+
+        <div class="signup-container">
+            <button onclick="back()">Back</button>
+            <button onclick="save()">Next</button>
+        </div>
+    </section>
+
+    <script src="{% static "js/signup.js" %}"></script>
+    <script>
+        let count = {{count}};
+        update()
+        function save(){
+            let table = "";
+            let array = [];
+            let is_valid = true;
+            const chosen = document.querySelector(".chosen");
+            if(count == 0){
+                table = "members";
+                array = [helper(chosen, "username"), helper(chosen, "password"), helper(chosen, "email"), helper(chosen, "phone"), helper(chosen, "title"), helper(chosen, "fname"), helper(chosen, "lname"), helper(chosen, "id"), helper(chosen, "initials"), helper(chosen, "occupation"), helper(chosen, "employer")];
+                if(array[0] == "" && array[1] == "" && array[2] == ""){
+                    is_valid = false;
+                }
+            }
+            else if(count == 1 || count == 2 || count == 3){
+                next()
+            }
+            else {
+                is_valid = false;
+            }
+            
+            if(is_valid){
+                
+                insert(table, array);
+            }
+            
+        }
+        function helper(chosen, object){
+            return chosen.querySelector("." + object).value;
+        }
+
+        function insert(table, array){
+            $.ajax({
+                url: "{% url 'insert_member' %}",
+                type: "POST",
+                data: {
+                    'table': table,
+                    'array': JSON.stringify(array),
+                    'csrfmiddlewaretoken': '{{ csrf_token }}'
+                },
+                success: function(response) {
+                    if(response.response == "Success"){
+                        next();
+                    }
+                    else {
+                        alert(response.response)
+                    }
+                }
+            });
+        }
+
+        function add(table) {
+            const container = document.querySelector("." + table);
+            const input = container.querySelector("input").value;
+            add_database(container, table, input)
+        }
+        
+        function remove(e) {
+            const li = e.parentElement;
+            li.remove()
+        }
+        
+        function add_database(container, table, value) {
+            $.ajax({
+                url: "{% url 'add_items' %}",
+                type: "POST",
+                data: {
+                    'table': table,
+                    'value': value,
+                    'csrfmiddlewaretoken': '{{ csrf_token }}'
+                },
+                success: function(response) {
+                    if(response.response == "Success"){
+                        const ul = container.querySelector("ul");
+                        ul.innerHTML += "<li><div>" + value + "</div><span onclick='remove(this)'>--</span></li>"
+                        container.querySelector("input").value = ""
+                    }
+                    else {
+                        alert(response.response)
+                    }
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>

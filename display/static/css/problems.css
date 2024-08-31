@@ -1,0 +1,57 @@
+/* --- Problems --- */
+.problems {
+    width: 85%;
+    margin-left: 7.5%;
+    margin-top: 20px;
+}
+
+.problems h3 {
+    text-transform: initial;
+    font-size: 1.3rem;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 20px;
+    color: white;
+    background: linear-gradient(135deg, white, #ff0ecf, #d03232);
+}
+
+.problems-list {
+    margin-top: 20px;
+}
+
+.problems-list h3 {
+    text-transform: initial;
+    font-size: 1.3rem;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.problems-list li {
+    margin-top: 20px;
+}
+
+.problems-list div {
+    font-size: 1.5rem;
+}
+
+.problem-container {
+    display: flex;
+    overflow-x: auto;
+    max-width: 100%;
+}
+
+.problem-container button {
+    width: 200px;
+    flex-shrink: 0;
+    margin-right: 10px;
+    height: 90px;
+    border-radius: 4px;
+    background: linear-gradient(135deg, white, #0edfff, #3245d0)
+}
+
+.problem-container button>span {
+    font-size: 1.1rem;
+    color: white;
+    font-weight: bolder;
+}

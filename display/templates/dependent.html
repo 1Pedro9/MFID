@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block styles %}<link rel="stylesheet" href="{% static "css/dependent.css" %}">{% endblock styles %}
+
+{% block content %}
+<section class="header">
+    <button><a href="{% url "index" %}">Personal</a></button>
+    <button style="background: #fff; "><a href="{% url "dependents" %}">Dependants</a></button>
+</section>
+
+<section class="dependent">
+    <h3>Here are the dependents you fall under</h3>
+    <ul class="dependent-list">
+        <li>
+            <button>Paul Basson</button>
+            <div class="dependent-container">
+                <label for="">DOB</label>
+                <input type="text" value="1969-08-13">
+                <label for="">Dependent Code</label>
+                <input type="text" value="00">
+            </div>
+        </li>
+        <li>
+            <button>Rene Basson</button>
+            <div class="dependent-container">
+                <label for="">DOB</label>
+                <input type="text" value="1969-08-13">
+                <label for="">Dependent Code</label>
+                <input type="text" value="01">
+            </div>
+        </li>
+        <li>
+            <button>Pedro Basson</button>
+            <div class="dependent-container">
+                <label for="">DOB</label>
+                <input type="text" value="1969-08-13">
+                <label for="">Dependent Code</label>
+                <input type="text" value="02">
+            </div>
+        </li>
+        <li>
+            <button>Christian Basson</button>
+            <div class="dependent-container">
+                <label for="">DOB</label>
+                <input type="text" value="1969-08-13">
+                <label for="">Dependent Code</label>
+                <input type="text" value="03">
+            </div>
+        </li>
+    </ul>
+</section><br><br><br><br><br><br>
+{% endblock content %}
+
+{% block js %}
+<script src="{% static "js/dependent.js" %}"></script>
+{% endblock js %}  
